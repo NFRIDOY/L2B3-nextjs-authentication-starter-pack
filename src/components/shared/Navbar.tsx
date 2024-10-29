@@ -2,15 +2,15 @@
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 interface TSessionUserProps {
-    user?: { 
-      name?: string | null;
-      image?: string | null;
-      email?: string | null;
+  user?: {
+    name?: string | null;
+    image?: string | null;
+    email?: string | null;
 
-    }
   }
+}
 
-const Navbar = ({session}: {session: TSessionUserProps | null }) => {
+const Navbar = ({ session }: { session: TSessionUserProps | null }) => {
   return (
     <div className="navbar bg-base-100  border-b  w-[90%] mx-auto">
       <div className="navbar-start">
@@ -69,17 +69,22 @@ const Navbar = ({session}: {session: TSessionUserProps | null }) => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="btn btn-error btn-outline text-white rounded-full px-5"
-        onClick={()=> signOut()}>
-          Logout
-        </button>
+        {
+          session?.user ?
+            <button className="btn btn-error btn-outline text-white rounded-full px-5"
+              onClick={() => signOut()}>
+              Logout
+            </button>
 
-        <Link
-          href="/login"
-          className="btn btn-accent btn-outline text-white rounded-full px-5"
-        >
-          Login
-        </Link>
+            :
+            <Link
+              href="/login"
+              className="btn btn-accent btn-outline text-white rounded-full px-5"
+            >
+              Login
+            </Link>
+
+        }
       </div>
     </div>
   );
