@@ -20,8 +20,6 @@ const LoginPage = () => {
     console.log(data);
   };
 
-  console.log(process.env.NEXT_PUBLIC_BASE_URL)
-
   return (
     <div className="my-10">
       <h1 className="text-center text-4xl mb-5">

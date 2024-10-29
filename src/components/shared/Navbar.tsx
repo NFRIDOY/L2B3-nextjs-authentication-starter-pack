@@ -1,6 +1,14 @@
 import Link from "next/link";
+interface TSessionUserProps {
+    user?: { 
+      name?: string | null;
+      image?: string | null;
+      email?: string | null;
 
-const Navbar = () => {
+    }
+  }
+
+const Navbar = ({session}: {session: TSessionUserProps | null }) => {
   return (
     <div className="navbar bg-base-100  border-b  w-[90%] mx-auto">
       <div className="navbar-start">
