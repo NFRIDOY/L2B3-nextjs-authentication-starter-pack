@@ -72,7 +72,7 @@ const Navbar = ({ session }: { session: TSessionUserProps | null }) => {
         {
           session?.user ?
             <button className="btn btn-error btn-outline text-white rounded-full px-5"
-              onClick={() => signOut()}>
+              onClick={() => signOut({callbackUrl:"/"})}>
               Logout
             </button>
 
